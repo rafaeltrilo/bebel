@@ -1,0 +1,41 @@
+name: Deploy no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Permissões exigidas pelas actions oficiais de Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Um deploy por vez; não cancela o que já está em andamento
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Pages
+        uses: actions/configure-pages@v5
+
+      # O site é estático: não há build. Publicamos a pasta site/ como está,
+      # e é dela que saem o CNAME (domínio próprio) e o .nojekyll.
+      - name: Empacotar a pasta site/
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site
+
+      - name: Publicar
+        id: deployment
+        uses: actions/deploy-pages@v4
