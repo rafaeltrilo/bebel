@@ -1,7 +1,11 @@
 # Roteiro do Seu Jeito — site
 
-Landing page estática de **roteirodoseujeito.com.br**, servida por [Caddy](https://caddyserver.com)
-em Docker Compose, com HTTPS automático (Let's Encrypt).
+Landing page estática de **roteirodoseujeito.com.br**.
+
+Em produção é publicada no **GitHub Pages** (veja [Deploy](#deploy)). Para
+desenvolvimento local — ou para hospedar em servidor próprio — o repositório
+traz uma stack com [Caddy](https://caddyserver.com) em Docker Compose, com
+HTTPS automático via Let's Encrypt.
 
 ```
 site/            # o site (é só isso que você edita no dia a dia)
@@ -11,6 +15,9 @@ site/            # o site (é só isso que você edita no dia a dia)
   robots.txt
   sitemap.xml
   assets/        # imagens das páginas do roteiro
+  CNAME          # domínio próprio no GitHub Pages
+  .nojekyll
+.github/workflows/deploy-pages.yml  # publica no GitHub Pages a cada push na main
 Caddyfile              # configuração do servidor (modo padrão, com HTTPS)
 Caddyfile.proxy        # configuração para rodar atrás de outro proxy
 docker-compose.yml     # stack padrão (portas 80 e 443)
@@ -18,7 +25,69 @@ docker-compose.proxy.yml  # override para rodar atrás de outro proxy
 .env.example           # modelo de variáveis; copie para .env
 ```
 
-## Antes de publicar
+## Deploy
+
+O site em produção é publicado no **GitHub Pages**, no domínio
+`roteirodoseujeito.com.br`. O Docker Compose descrito mais abaixo continua
+valendo para rodar o site localmente ou para hospedar em servidor próprio.
+
+### Como funciona
+
+A cada push na branch `main`, o workflow `.github/workflows/deploy-pages.yml`
+empacota a pasta `site/` e publica no Pages com as actions oficiais
+(`configure-pages`, `upload-pages-artifact`, `deploy-pages`). **Não há etapa de
+build**: o site é HTML/CSS/JS estático e sobe exatamente como está no repositório.
+Também dá para disparar o deploy à mão em *Actions → Deploy no GitHub Pages →
+Run workflow*.
+
+Dois arquivos dentro de `site/` existem só para o Pages:
+
+- `CNAME` — contém o domínio próprio. **Não apague**: o Pages lê esse arquivo e,
+  sem ele, o domínio personalizado é desconfigurado a cada deploy.
+- `.nojekyll` — desliga o processamento Jekyll.
+
+### Publicar uma alteração
+
+```bash
+# edite site/index.html, troque imagens em site/assets/ ...
+git add site && git commit -m "Atualiza ..." && git push origin main
+```
+
+Acompanhe em *Actions*. O deploy leva cerca de um minuto; depois disso pode
+levar mais alguns minutos até o CDN do GitHub servir a versão nova.
+
+### Configuração (uma vez só)
+
+No repositório, em *Settings → Pages*: **Source = GitHub Actions**, *Custom
+domain* = `roteirodoseujeito.com.br` e **Enforce HTTPS** marcado (ele só fica
+disponível depois que o certificado é emitido, o que pode demorar até 24 h após
+o DNS apontar certo).
+
+No registro.br, em *Editar zona DNS*:
+
+| Tipo  | Nome  | Valor                   |
+|-------|-------|-------------------------|
+| A     | `@`   | `185.199.108.153`       |
+| A     | `@`   | `185.199.109.153`       |
+| A     | `@`   | `185.199.110.153`       |
+| A     | `@`   | `185.199.111.153`       |
+| CNAME | `www` | `<usuario>.github.io.`  |
+
+Conferir depois com `dig roteirodoseujeito.com.br +short`.
+
+### Limites do GitHub Pages
+
+O Pages serve só arquivos estáticos, o que basta aqui. O que ele **não** aplica
+são os cabeçalhos definidos no `Caddyfile` (CSP, HSTS, cache longo em
+`assets/`) — eles valem apenas no deploy com Docker. Se esses cabeçalhos
+passarem a ser requisito, use o Docker em servidor próprio ou coloque um CDN
+(por exemplo Cloudflare) na frente do Pages.
+
+---
+
+# Rodar com Docker (local ou servidor próprio)
+
+## Pré-requisitos no servidor
 
 1. **DNS**: no painel do seu registrador, aponte o domínio para o IP do servidor:
 
@@ -34,7 +103,7 @@ docker-compose.proxy.yml  # override para rodar atrás de outro proxy
    abertas e livres. Se já houver um nginx/Apache ocupando a 80, veja
    "Atrás de um proxy existente" mais abaixo.
 
-## Publicar
+## Subir a stack
 
 No servidor, com Docker e o plugin Compose instalados:
 
@@ -52,7 +121,7 @@ Acompanhe a emissão com:
 docker compose logs -f
 ```
 
-## Atualizar o site
+## Atualizar o site (Docker)
 
 O conteúdo é um bind mount: não precisa rebuildar imagem.
 
