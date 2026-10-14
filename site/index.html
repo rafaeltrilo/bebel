@@ -156,6 +156,10 @@ footer { border-top: 1px solid var(--line); padding-block: 28px; color: var(--mu
   .buybox { position: static; }
   .top nav { display: none; }
 }
+@media (max-width: 600px) {
+  .previews { grid-template-columns: 1fr; gap: 28px; }
+  .previews figcaption { font-size: 1rem; }
+}
 @media (prefers-reduced-motion: no-preference) {
   .pass { animation: lift .7s ease-out both; }
   @keyframes lift { from { transform: translateY(10px) rotate(-1deg); } to { transform: none; } }
