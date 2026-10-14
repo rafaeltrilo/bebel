@@ -57,7 +57,9 @@ h3 { font-size: 1.25rem; font-weight: 600; }
 p { margin: 0; }
 a { color: inherit; }
 .eyebrow { font-family: var(--mono); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--coral); }
-section { padding-block: clamp(48px, 7vw, 88px); }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+section { padding-block: clamp(48px, 7vw, 88px); scroll-margin-top: 16px; }
 
 /* top bar */
 .top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; }
@@ -286,7 +288,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px; color: var(--mu
       <a class="btn buy" href="https://pay.kiwify.com.br/ooouZM0"><span class="pt">Quero o roteiro · R$ 19,90</span><span class="en">Get the guide · R$ 19.90</span></a>
     </section>
 
-    <section id="guia">
+    <section id="guia" style="padding-top:0">
       <div class="next" style="grid-template-columns:1fr">
         <div>
           <span class="tag"><span class="pt">SERVIÇO DE GUIA</span><span class="en">GUIDED TOURS</span></span>
