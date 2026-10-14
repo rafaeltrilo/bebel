@@ -1,0 +1,12 @@
+# Override para rodar atrás de um reverse proxy já existente no servidor:
+#   docker compose -f docker-compose.yml -f docker-compose.proxy.yml up -d
+# O site passa a responder em http://127.0.0.1:8080 (aponte seu proxy para lá).
+services:
+  web:
+    ports: !override
+      - "127.0.0.1:${HTTP_PORT:-8080}:80"
+    volumes:
+      - ./Caddyfile.proxy:/etc/caddy/Caddyfile:ro
+      - ./site:/srv:ro
+      - caddy_data:/data
+      - caddy_config:/config

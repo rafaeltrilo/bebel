@@ -1,0 +1,44 @@
+{
+	email {$ACME_EMAIL}
+}
+
+# Redireciona www -> domínio raiz
+www.{$DOMAIN} {
+	redir https://{$DOMAIN}{uri} permanent
+}
+
+{$DOMAIN} {
+	root * /srv
+	encode zstd gzip
+
+	header {
+		-Server
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "SAMEORIGIN"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "geolocation=(), microphone=(), camera=()"
+		Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; base-uri 'self'; frame-ancestors 'self'"
+	}
+
+	# Imagens e favicon têm hash/são estáveis: cache longo
+	@immutable path /assets/* /favicon.svg
+	header @immutable Cache-Control "public, max-age=31536000, immutable"
+
+	# HTML sempre revalidado, para que uma atualização apareça na hora
+	@html path / /index.html /robots.txt /sitemap.xml
+	header @html Cache-Control "public, max-age=300, must-revalidate"
+
+	file_server
+
+	handle_errors {
+		@404 expression {err.status_code} == 404
+		rewrite @404 /404.html
+		file_server
+	}
+
+	log {
+		output stdout
+		format console
+	}
+}
