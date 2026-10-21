@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Roteiro do Seu Jeito — Nova York e Miami em 9 dias</title>
-<meta name="description" content="Roteiro digital de 9 dias em Nova York e Miami: 13 páginas em PDF, 38 paradas no mapa, dia a dia, hotéis em três faixas de preço, onde comer e quanto custa. R$ 19,90.">
+<meta name="description" content="Roteiro digital de 9 dias em Nova York e Miami: 13 páginas em PDF, 38 paradas no mapa, dia a dia, hotéis em três faixas de preço, onde comer e quanto custa. R$ 39,90.">
 <link rel="canonical" href="https://roteirodoseujeito.com.br/">
 <meta name="theme-color" content="#12355B">
 <meta property="og:type" content="website">
@@ -12,14 +12,14 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:url" content="https://roteirodoseujeito.com.br/">
 <meta property="og:title" content="Roteiro do Seu Jeito — Nova York e Miami em 9 dias">
-<meta property="og:description" content="Roteiro digital de 9 dias em Nova York e Miami: mapas, dia a dia, hotéis e custos. Download imediato por R$ 19,90.">
+<meta property="og:description" content="Roteiro digital de 9 dias em Nova York e Miami: mapas, dia a dia, hotéis e custos. Download imediato por R$ 39,90.">
 <meta property="og:image" content="https://roteirodoseujeito.com.br/assets/pagina-1-2c792565ab.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
 <style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
 </head>
 <body>
@@ -59,7 +59,7 @@ a { color: inherit; }
 .eyebrow { font-family: var(--mono); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--coral); }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-section { padding-block: clamp(48px, 7vw, 88px); scroll-margin-top: 16px; }
+section { padding-block: clamp(48px, 7vw, 88px); }
 
 /* top bar */
 .top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; }
@@ -125,6 +125,10 @@ section { padding-block: clamp(48px, 7vw, 88px); scroll-margin-top: 16px; }
 .previews figcaption { font-size: .88rem; color: var(--muted); }
 
 /* next trip */
+.next { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(24px, 4vw, 48px); align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: clamp(20px, 4vw, 40px); }
+.next > * { min-width: 0; }
+.next img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); }
+.tag { display: inline-block; font-family: var(--mono); font-size: .75rem; letter-spacing: .1em; background: var(--navy); color: var(--bg); padding: 5px 10px; border-radius: 6px; }
 
 /* steps */
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 28px; }
@@ -144,7 +148,7 @@ details p { margin-top: 10px; color: var(--muted); }
 footer { border-top: 1px solid var(--line); padding-block: 28px; color: var(--muted); font-size: .88rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
 
 @media (max-width: 860px) {
-  .hero, .sheet { grid-template-columns: 1fr; }
+  .hero, .sheet, .next { grid-template-columns: 1fr; }
   .previews { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: 1fr; }
   .buybox { position: static; }
@@ -158,6 +162,80 @@ footer { border-top: 1px solid var(--line); padding-block: 28px; color: var(--mu
   .pass { animation: lift .7s ease-out both; }
   @keyframes lift { from { transform: translateY(10px) rotate(-1deg); } to { transform: none; } }
 }
+
+/* Hero curadoria (topo) */
+.cur{position:relative;width:100vw;margin-left:calc(50% - 50vw);min-height:min(92vh,860px);display:flex;align-items:center;justify-content:center;overflow:hidden;isolation:isolate;color:#fff;text-align:center;padding:96px 20px 120px}
+.cur-bg{position:absolute;inset:-4%;background:url(assets/hero-nova-york-a5c123ab01.jpg) center 40%/cover no-repeat;z-index:-2;animation:curzoom 26s ease-in-out infinite alternate}
+.cur:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,53,91,.66) 0%,rgba(18,53,91,.5) 40%,rgba(64,34,24,.6) 78%,rgba(18,53,91,.92) 100%),radial-gradient(ellipse at 50% 45%,rgba(242,107,79,.18),transparent 60%)}
+.cur:after{content:"";position:absolute;inset:0;z-index:-1;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:4px 4px;mix-blend-mode:overlay}
+@keyframes curzoom{from{transform:scale(1)}to{transform:scale(1.08) translateY(-1.5%)}}
+@media (prefers-reduced-motion:reduce){.cur-bg{animation:none}.cur-in>*{animation:none!important;opacity:1!important}}
+.cur-in{max-width:880px;margin:0 auto}
+.cur-in>*{opacity:0;animation:curup .9s cubic-bezier(.2,.7,.2,1) forwards}
+.cur-in>*:nth-child(2){animation-delay:.12s}.cur-in>*:nth-child(3){animation-delay:.24s}.cur-in>*:nth-child(4){animation-delay:.36s}.cur-in>*:nth-child(5){animation-delay:.48s}.cur-in>*:nth-child(6){animation-delay:.6s}
+@keyframes curup{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.cur-eb{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;padding:9px 16px;border:1px solid rgba(243,233,220,.45);border-radius:999px;background:rgba(18,53,91,.35);backdrop-filter:blur(6px);color:#F3E9DC}
+.cur-eb i{width:7px;height:7px;border-radius:50%;background:#F26B4F;box-shadow:0 0 0 4px rgba(242,107,79,.25)}
+.cur h1{font-family:"Lora",Georgia,serif;font-weight:600;color:#fff;font-size:clamp(2.6rem,7.2vw,5.4rem);line-height:1.02;letter-spacing:-.01em;margin:26px 0 0;text-shadow:0 2px 30px rgba(0,0,0,.35)}
+.cur h1 em{font-style:italic;font-weight:500;color:#F7B39F}
+.cur-p{font-family:"Lora",Georgia,serif;font-size:clamp(1.05rem,2vw,1.28rem);line-height:1.6;color:rgba(255,255,255,.92);max-width:700px;margin:24px auto 0;text-shadow:0 1px 14px rgba(0,0,0,.4)}
+.cur-feat{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:34px auto 0;max-width:760px;padding:0;list-style:none}
+.cur-feat li{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:rgba(243,233,220,.14);border:1px solid rgba(243,233,220,.28);backdrop-filter:blur(8px);font-size:.92rem;font-weight:600;color:#fff}
+.cur-feat svg{width:17px;height:17px;flex:none;stroke:#F7B39F;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cur-cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:36px}
+.cur-cta a{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:1rem;padding:16px 28px;border-radius:999px;transition:transform .2s ease,background .2s ease}
+.cur-cta a:hover{transform:translateY(-2px)}
+.cur-cta .a1{background:#F26B4F;color:#fff;box-shadow:0 12px 30px rgba(242,107,79,.4)}
+.cur-cta .a2{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.55);backdrop-filter:blur(6px)}
+.cur-cta .a2:hover{background:rgba(255,255,255,.2)}
+.cur-strip{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:center;gap:clamp(18px,5vw,64px);padding:18px 16px;background:linear-gradient(0deg,rgba(18,53,91,.85),rgba(18,53,91,0));font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(243,233,220,.9)}
+.cur-strip b{color:#F26B4F;font-weight:500}
+.cur-scroll{position:absolute;left:50%;bottom:64px;transform:translateX(-50%);width:26px;height:42px;border:2px solid rgba(255,255,255,.6);border-radius:14px}
+.cur-scroll:after{content:"";position:absolute;left:50%;top:8px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:#fff;animation:curdot 1.8s infinite}
+@keyframes curdot{0%{opacity:0;transform:translateY(0)}40%{opacity:1}100%{opacity:0;transform:translateY(12px)}}
+@media (max-width:640px){.cur{min-height:auto;padding:72px 16px 150px}.cur-strip{gap:14px;font-size:.62rem;letter-spacing:.1em;flex-wrap:wrap}.cur-scroll{display:none}.cur-feat li{font-size:.85rem;padding:9px 13px}}
+
+/* Guias disponíveis */
+.gd{padding-block:clamp(48px,7vw,80px) 8px}
+.gd-head{text-align:center;max-width:720px;margin:0 auto}
+.gd-head h2{font-family:"Lora",Georgia,serif;font-weight:600;font-size:clamp(1.9rem,4vw,2.8rem);margin-top:10px}
+.gd-head h2 em{font-style:italic;font-weight:500;color:var(--coral)}
+.gd-head p{color:var(--muted);margin-top:12px}
+.gd-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin-top:34px}
+.gd-card{position:relative;border-radius:26px;overflow:hidden;background:var(--surface);border:1px solid var(--line);box-shadow:0 18px 40px rgba(18,53,91,.08);display:flex;flex-direction:column;transition:transform .25s ease,box-shadow .25s ease}
+.gd-card:hover{transform:translateY(-4px);box-shadow:0 26px 50px rgba(18,53,91,.14)}
+.gd-img{position:relative;height:250px;background-size:cover;background-position:center}
+.gd-img:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,53,91,0) 40%,rgba(18,53,91,.75))}
+.gd-ny{background-image:url(assets/guia-nova-york-1c20a2b73c.jpg)}
+.gd-pt{background-image:url(assets/padrao-portugal-6c3e0109d8.svg);background-size:80px 80px}
+.gd-pt:after{background:linear-gradient(180deg,rgba(18,53,91,.05) 30%,rgba(18,53,91,.8))}
+.gd-badge{position:absolute;z-index:1;top:16px;left:16px;font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;padding:7px 12px;border-radius:999px;background:#F26B4F;color:#fff}
+.gd-badge.soon{background:#12355B}
+.gd-title{position:absolute;z-index:1;left:22px;right:22px;bottom:18px;color:#fff;font-family:"Lora",Georgia,serif;font-weight:600;font-size:1.9rem;line-height:1.05}
+.gd-title small{display:block;font-family:var(--mono);font-weight:500;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;opacity:.85;margin-bottom:6px}
+.gd-body{padding:22px 24px 24px;display:flex;flex-direction:column;gap:16px;flex:1}
+.gd-route{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-weight:600;font-size:.92rem}
+.gd-route>span{padding:6px 11px;border-radius:999px;background:var(--bg);border:1px solid var(--line)}
+.gd-route i{color:var(--coral);font-style:normal}
+.gd-meta{display:flex;flex-wrap:wrap;gap:14px;color:var(--muted);font-size:.9rem}
+.gd-meta b{color:var(--ink)}
+.gd-act{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;align-items:center}
+.gd-act a{text-decoration:none;font-weight:700;padding:13px 20px;border-radius:999px;font-size:.95rem}
+.gd-act .b1{background:var(--coral);color:#fff}
+.gd-act .b2{border:1px solid var(--line);color:var(--ink)}
+.gd-act .b3{background:#12355B;color:#F3E9DC}
+.gd-price{font-family:"Lora",Georgia,serif;font-style:italic;font-size:1.5rem;color:var(--coral);margin-left:auto}
+.gd-love{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:30px;text-align:center;font-family:"Lora",Georgia,serif;font-style:italic;font-size:clamp(1.05rem,2vw,1.3rem);color:var(--ink)}
+.gd-love:before,.gd-love:after{content:"";flex:0 1 70px;height:1px;background:var(--coral);opacity:.6}
+.gd-love b{color:var(--coral);font-style:normal;font-weight:400}
+.gd-safe{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:28px}
+.gd-safe span.box{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:999px;font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase}
+.gd-safe .ok{background:var(--surface);border:1px solid var(--line);color:var(--ink)}
+.gd-safe .ok svg{stroke:var(--ok)}
+.gd-safe .dg{background:#12355B;color:#F3E9DC}
+.gd-safe .dg b{color:#F26B4F}
+.gd-safe svg{width:18px;height:18px;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.gd-safe .dg svg{stroke:#F26B4F}
 </style>
 
 
@@ -176,9 +254,11 @@ footer { border-top: 1px solid var(--line); padding-block: 28px; color: var(--mu
     <a class="brand" href="#inicio"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="50" fill="#F3E9DC"/><circle cx="50" cy="50" r="33" fill="none" stroke="#12355B" stroke-width="2.4"/><g fill="#12355B"><path d="M50 50 44 56 50 86 56 56z"/><path d="M50 50 44 44 14 50 44 56z"/><path d="M50 50 56 56 86 50 56 44z"/></g><path d="M50 50 44 44 50 14 56 44z" fill="#F26B4F"/><circle cx="50" cy="50" r="4" fill="#F3E9DC" stroke="#12355B" stroke-width="2"/></svg><span style="color:var(--navy)">Roteiro <span style="color:var(--coral)">do Seu</span> Jeito</span></a>
     <div class="top-right">
       <nav aria-label="Seções">
+        <a href="#guias"><span class="pt">Guias</span><span class="en">Guides</span></a>
         <a href="#roteiro"><span class="pt">O roteiro</span><span class="en">The guide</span></a>
         <a href="#por-dentro"><span class="pt">Por dentro</span><span class="en">Inside</span></a>
         <a href="#duvidas"><span class="pt">Dúvidas</span><span class="en">FAQ</span></a>
+        <a href="#personalizado"><span class="pt">Roteiro personalizado</span><span class="en">Custom itinerary</span></a>
       </nav>
       <div class="langs" role="group" aria-label="Idioma / Language">
         <button type="button" id="lang-pt" data-l="pt" aria-pressed="true">PT</button>
@@ -187,14 +267,60 @@ footer { border-top: 1px solid var(--line); padding-block: 28px; color: var(--mu
     </div>
   </header>
 
+  <section class="cur" aria-label="Roteiro do Seu Jeito">
+    <div class="cur-bg" role="img" aria-label="Ponte do Brooklyn e o skyline de Nova York ao nascer do sol"></div>
+    <div class="cur-in">
+      <span class="cur-eb"><i></i><span class="pt">Curadoria de viagem · Roteiro do Seu Jeito</span><span class="en">Travel curation · Roteiro do Seu Jeito</span></span>
+      <h1><span class="pt">Planeje menos.<br><em>Passeie mais.</em></span><span class="en">Plan less.<br><em>Explore more.</em></span></h1>
+      <p class="cur-p"><span class="pt">Guias completos com hospedagens, gastronomia, experiências e planejamento inteligente para aproveitar cada destino de forma mais prática, leve e bem aproveitada.</span><span class="en">Complete guides with stays, dining, experiences and smart planning, so you can enjoy every destination in a more practical, lighter and fuller way.</span></p>
+      <ul class="cur-feat"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h7"/><circle cx="18" cy="16" r="3"/></svg><span class="pt">Planejamento inteligente</span><span class="en">Smart planning</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span class="pt">Roteiro dia a dia</span><span class="en">Day-by-day itinerary</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20V8l9-5 9 5v12"/><path d="M9 20v-6h6v6"/></svg><span class="pt">Hotéis</span><span class="en">Hotels</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 16l1.5-5h11L19 16"/><rect x="3" y="16" width="18" height="3" rx="1"/><circle cx="7" cy="19.5" r="1"/><circle cx="17" cy="19.5" r="1"/></svg><span class="pt">Transporte</span><span class="en">Transport</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span class="pt">Passeios</span><span class="en">Tours</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V10M19 21V10M9 21V10M15 21V10M2 10l10-6 10 6z"/></svg><span class="pt">Cultura</span><span class="en">Culture</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 3c-2 0-3 3-3 6s1 4 3 4v8"/></svg><span class="pt">Gastronomia</span><span class="en">Food & dining</span></li></ul>
+      <div class="cur-cta"><a class="a1" href="#guias"><span class="pt">Ver os roteiros</span><span class="en">See the guides</span> →</a><a class="a2" href="#personalizado"><span class="pt">Quero um roteiro personalizado</span><span class="en">I want a custom itinerary</span></a></div>
+    </div>
+    <span class="cur-scroll" aria-hidden="true"></span>
+    <div class="cur-strip"><span><b>✦</b> <span class="pt">Roteiro dia a dia</span><span class="en">Day by day</span></span><span><b>✦</b> <span class="pt">Mapa no Google Maps</span><span class="en">Google Maps links</span></span><span><b>✦</b> <span class="pt">Português e inglês</span><span class="en">English &amp; Portuguese</span></span></div>
+  </section>
+
   <main id="inicio">
+
+    <section class="gd" id="guias">
+      <div class="gd-head">
+        <p class="eyebrow"><span class="pt">Guias disponíveis para baixar</span><span class="en">Guides available to download</span></p>
+        <h2><span class="pt">Escolha o seu <em>próximo destino</em></span><span class="en">Choose your <em>next destination</em></span></h2>
+        <p><span class="pt">PDFs prontos, com roteiro dia a dia, mapa linkado ao Google Maps, hotéis, restaurantes e preços.</span><span class="en">Ready-to-use PDFs with a day-by-day plan, Google Maps links, hotels, restaurants and prices.</span></p>
+      </div>
+      <div class="gd-grid">
+        <article class="gd-card">
+          <div class="gd-img gd-ny"><span class="gd-badge"><span class="pt">Disponível</span><span class="en">Available</span></span><div class="gd-title"><small><span class="pt">9 dias · EUA</span><span class="en">9 days · USA</span></small><span class="pt">Nova Iorque e Miami</span><span class="en">New York &amp; Miami</span></div></div>
+          <div class="gd-body">
+            <div class="gd-route"><span>Nova Iorque · 5 <span class="pt">dias</span><span class="en">days</span></span><i>→</i><span>Miami · 4 <span class="pt">dias</span><span class="en">days</span></span></div>
+            <div class="gd-meta"><span><b>13</b> <span class="pt">páginas</span><span class="en">pages</span></span><span><b>38</b> <span class="pt">paradas no mapa</span><span class="en">map stops</span></span><span><b>PT</b> + <b>EN</b></span></div>
+            <div class="gd-act"><a class="b1" href="https://pay.kiwify.com.br/ooouZM0"><span class="pt">Baixar o guia</span><span class="en">Get the guide</span></a><a class="b2" href="#por-dentro"><span class="pt">Ver por dentro</span><span class="en">Look inside</span></a><span class="gd-price">R$ 39,90</span></div>
+          </div>
+        </article>
+        <article class="gd-card">
+          <div class="gd-img gd-pt"><span class="gd-badge soon"><span class="pt">Em breve</span><span class="en">Coming soon</span></span><div class="gd-title"><small><span class="pt">Norte ao Sul · Portugal</span><span class="en">North to South · Portugal</span></small>Portugal</div></div>
+          <div class="gd-body">
+            <div class="gd-route"><span>Braga</span><i>→</i><span>Porto</span><i>→</i><span>Coimbra</span><i>→</i><span>Aveiro</span><i>→</i><span>Lisboa</span><i>→</i><span>Algarve <span class="pt">(Praias)</span><span class="en">(Beaches)</span></span></div>
+            <div class="gd-meta"><span><span class="pt">Do Minho às praias do Algarve</span><span class="en">From the Minho to the Algarve beaches</span></span><span><b>PT</b> + <b>EN</b></span></div>
+            <div class="gd-act"><a class="b3" href="mailto:roteirodoseujeito@gmail.com?subject=Quero%20o%20guia%20de%20Portugal"><span class="pt">Quero ser avisado(a) no lançamento</span><span class="en">Notify me at launch</span></a><span class="gd-price">R$ 39,90</span></div>
+          </div>
+        </article>
+      </div>
+            <div class="gd-safe">
+        <span class="box ok"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span class="pt">Pagamento 100% seguro com acesso imediato</span><span class="en">100% secure payment with instant access</span></span>
+        <span class="box dg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg><b><span class="pt">Atenção:</span><span class="en">Please note:</span></b> <span class="pt">este é um produto digital</span><span class="en">this is a digital product</span></span>
+      </div>
+<p class="gd-love"><span><span class="pt">Feito com cuidado por quem já conhece estes destinos e ama viajar</span><span class="en">Made with care by someone who knows these destinations and loves to travel</span> <b>♡</b></span></p>
+    </section>
+    
+
     <div class="hero">
       <div>
         <p class="eyebrow"><span class="pt">Guia digital em PDF · português e inglês · atualizado em outubro de 2026</span><span class="en">Digital PDF guide · English and Portuguese · updated October 2026</span></p>
         <h1 style="margin-top:12px"><span class="pt">Nova York e Miami em 9 dias, <em>sem passar semanas planejando</em></span><span class="en">New York and Miami in 9 days, <em>without weeks of planning</em></span></h1>
         <p class="lede"><span class="pt">Um roteiro dia a dia, com mapa, hotéis em três faixas de preço, onde comer, onde comprar e quanto custa cada atração. Abra no celular e siga os números.</span><span class="en">A day-by-day itinerary with maps, hotels in three price ranges, where to eat, where to shop and what each attraction costs. Open it on your phone and follow the numbers.</span></p>
         <div class="cta-row">
-          <a class="btn buy" href="https://pay.kiwify.com.br/ooouZM0"><span class="pt">Quero o roteiro · R$ 19,90</span><span class="en">Get the guide · R$ 19.90</span></a>
+          <a class="btn buy" href="https://pay.kiwify.com.br/ooouZM0"><span class="pt">Quero o roteiro · R$ 39,90</span><span class="en">Get the guide · R$ 39.90</span></a>
           <a class="btn ghost" href="#por-dentro"><span class="pt">Ver as páginas</span><span class="en">See the pages</span></a>
         </div>
         <div class="trust"><span class="pt"><span><b>13 páginas</b> prontas</span><span><b>38 paradas</b> no mapa</span><span>Acesso <b>imediato</b> por e-mail</span><span>Em <b>português e inglês</b></span></span><span class="en"><span><b>13 pages</b> ready to use</span><span><b>38 stops</b> on the map</span><span><b>Instant</b> access by email</span><span>In <b>English and Portuguese</b></span></span></div>
@@ -215,7 +341,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px; color: var(--mu
             <div><span class="pt">PREÇOS</span><span class="en">PRICES</span><b>2026</b></div>
           </div>
         </div>
-        <div class="stub"><div class="barcode" aria-hidden="true"></div><div class="price"><span class="pt">R$ 19,90</span><span class="en">R$ 19.90</span></div></div>
+        <div class="stub"><div class="barcode" aria-hidden="true"></div><div class="price"><span class="pt">R$ 39,90</span><span class="en">R$ 39.90</span></div></div>
       </div>
     </div>
 
@@ -235,7 +361,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px; color: var(--mu
 
         <aside class="buybox" id="comprar" aria-label="Comprar / Buy">
           <p class="eyebrow"><span class="pt">Roteiro Nova York + Miami</span><span class="en">New York + Miami guide</span></p>
-          <div class="big"><span class="pt">R$ 19,90 <small>à vista</small></span><span class="en">R$ 19.90 <small>one-time</small></span></div>
+          <div class="big"><span class="pt">R$ 39,90 <small>à vista</small></span><span class="en">R$ 39.90 <small>one-time</small></span></div>
           <p class="fine"><span class="pt">Pagamento único no Pix ou no cartão. Você recebe os PDFs em português e inglês no e-mail logo após a compra.</span><span class="en">One-time payment by card (or Pix in Brazil). You get the English and Portuguese PDFs by email right after purchase. Price in Brazilian reais; your card converts it automatically.</span></p>
           <a class="btn buy" id="buyBtn" href="https://pay.kiwify.com.br/ooouZM0" style="justify-content:center"><span class="pt">Comprar agora</span><span class="en">Buy now</span></a>
           <p class="pending" id="buyPending" hidden><span class="pt">O link de compra entra no ar em breve.</span><span class="en">The purchase link goes live soon.</span></p>
@@ -280,9 +406,22 @@ footer { border-top: 1px solid var(--line); padding-block: 28px; color: var(--mu
       </div>
     </section>
 
+    <section id="personalizado">
+      <div class="next" style="grid-template-columns:1fr">
+        <div>
+          <span class="tag"><span class="pt">ROTEIRO PERSONALIZADO</span><span class="en">CUSTOM ITINERARY</span></span>
+          <h2 style="margin-top:14px"><span class="pt">Quer um roteiro feito só para você?</span><span class="en">Want an itinerary made just for you?</span></h2>
+          <p style="margin-top:12px;color:var(--muted)"><span class="pt">Me mande um e-mail com o destino, as datas, quantas pessoas vão e o seu estilo de viagem. Eu respondo com o orçamento do seu roteiro personalizado, em português ou em inglês.</span><span class="en">Email me your destination, dates, group size and travel style. I'll reply with a quote for your custom itinerary, in English or Portuguese.</span></p>
+          <p style="margin-top:18px"><a class="btn buy" href="mailto:roteirodoseujeito@gmail.com?subject=Or%C3%A7amento%20de%20roteiro%20personalizado"><span class="pt">Pedir orçamento por e-mail</span><span class="en">Request a quote by email</span></a></p>
+          <p style="margin-top:12px;font-weight:700">roteirodoseujeito@gmail.com</p>
+        </div>
+      </div>
+    </section>
+
+
     <section class="final">
       <h2><span class="pt">Sua próxima viagem começa organizada</span><span class="en">Your next trip starts organized</span></h2>
-      <a class="btn buy" href="https://pay.kiwify.com.br/ooouZM0"><span class="pt">Quero o roteiro · R$ 19,90</span><span class="en">Get the guide · R$ 19.90</span></a>
+      <a class="btn buy" href="https://pay.kiwify.com.br/ooouZM0"><span class="pt">Quero o roteiro · R$ 39,90</span><span class="en">Get the guide · R$ 39.90</span></a>
     </section>
   </main>
 
@@ -316,5 +455,5 @@ footer { border-top: 1px solid var(--line); padding-block: 28px; color: var(--mu
   });
 })();
 </script>
-
-</body></html>
+</body>
+</html>
