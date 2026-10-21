@@ -125,12 +125,6 @@ section { padding-block: clamp(48px, 7vw, 88px); scroll-margin-top: 16px; }
 .previews figcaption { font-size: .88rem; color: var(--muted); }
 
 /* next trip */
-.next { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(24px, 4vw, 48px); align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: clamp(20px, 4vw, 40px); }
-.next > * { min-width: 0; }
-.next img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); }
-.tag { display: inline-block; font-family: var(--mono); font-size: .75rem; letter-spacing: .1em; background: var(--navy); color: var(--bg); padding: 5px 10px; border-radius: 6px; }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-.chip { font-size: .85rem; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
 
 /* steps */
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 28px; }
@@ -150,7 +144,7 @@ details p { margin-top: 10px; color: var(--muted); }
 footer { border-top: 1px solid var(--line); padding-block: 28px; color: var(--muted); font-size: .88rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
 
 @media (max-width: 860px) {
-  .hero, .sheet, .next { grid-template-columns: 1fr; }
+  .hero, .sheet { grid-template-columns: 1fr; }
   .previews { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: 1fr; }
   .buybox { position: static; }
@@ -175,7 +169,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px; color: var(--mu
 .langs button[aria-pressed="true"] { background: var(--navy); color: var(--bg); }
 .langs button:focus-visible { outline: 3px solid var(--coral); outline-offset: -3px; }
 .top-right { display: flex; align-items: center; gap: 20px; }
-.trust > .pt, .trust > .en, .chips > .pt, .chips > .en { display: contents; }
+.trust > .pt, .trust > .en { display: contents; }
 </style>
 <div class="wrap">
   <header class="top">
@@ -185,7 +179,6 @@ footer { border-top: 1px solid var(--line); padding-block: 28px; color: var(--mu
         <a href="#roteiro"><span class="pt">O roteiro</span><span class="en">The guide</span></a>
         <a href="#por-dentro"><span class="pt">Por dentro</span><span class="en">Inside</span></a>
         <a href="#duvidas"><span class="pt">Dúvidas</span><span class="en">FAQ</span></a>
-        <a href="#guia"><span class="pt">Guia em Toronto</span><span class="en">Toronto tours</span></a>
       </nav>
       <div class="langs" role="group" aria-label="Idioma / Language">
         <button type="button" id="lang-pt" data-l="pt" aria-pressed="true">PT</button>
@@ -291,23 +284,11 @@ footer { border-top: 1px solid var(--line); padding-block: 28px; color: var(--mu
       <h2><span class="pt">Sua próxima viagem começa organizada</span><span class="en">Your next trip starts organized</span></h2>
       <a class="btn buy" href="https://pay.kiwify.com.br/ooouZM0"><span class="pt">Quero o roteiro · R$ 19,90</span><span class="en">Get the guide · R$ 19.90</span></a>
     </section>
-
-    <section id="guia" style="padding-top:0">
-      <div class="next" style="grid-template-columns:1fr">
-        <div>
-          <span class="tag"><span class="pt">SERVIÇO DE GUIA</span><span class="en">GUIDED TOURS</span></span>
-          <h2 style="margin-top:14px"><span class="pt">Guia em Toronto e arredores, incluindo Muskoka</span><span class="en">Your guide in Toronto and nearby, including Muskoka</span></h2>
-          <p style="margin-top:12px;color:var(--muted)"><span class="pt">Quer conhecer Toronto com quem já conhece? Eu acompanho você pela cidade e pela região, incluindo os lagos de Muskoka, em português ou em inglês. Montamos o passeio do seu jeito.</span><span class="en">Want to explore Toronto with someone who knows it? I'll show you around the city and the surrounding area, including the Muskoka lakes, in English or Portuguese. We plan the day your way.</span></p>
-          <div class="chips"><span class="pt"><span class="chip">Toronto</span><span class="chip">Muskoka</span><span class="chip">Português e inglês</span></span><span class="en"><span class="chip">Toronto</span><span class="chip">Muskoka</span><span class="chip">English and Portuguese</span></span></div>
-          <p style="margin-top:16px;font-weight:700"><span class="pt">Fale comigo pelo Direct do Instagram (<a href="https://instagram.com/roteirodoseujeito">@roteirodoseujeito</a>) ou pelo e-mail <a href="mailto:roteirodoseujeito@gmail.com">roteirodoseujeito@gmail.com</a></span><span class="en">Reach me via DM on Instagram (<a href="https://instagram.com/roteirodoseujeito">@roteirodoseujeito</a>) or by email at <a href="mailto:roteirodoseujeito@gmail.com">roteirodoseujeito@gmail.com</a></span></p>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer>
     <span>Roteiro do Seu Jeito · @roteirodoseujeito</span>
-    <span><span class="pt">Guias digitais de viagem e guia em Toronto · pagamento processado pela Kiwify</span><span class="en">Digital travel guides and guided tours in Toronto · payment processed by Kiwify</span></span>
+    <span><span class="pt">Guias digitais de viagem · pagamento processado pela Kiwify</span><span class="en">Digital travel guides · payment processed by Kiwify</span></span>
   </footer>
 </div>
 
